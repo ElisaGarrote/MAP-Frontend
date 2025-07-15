@@ -9,28 +9,28 @@ are maintained in our shared documentation sheet. Please check the following doc
 
 # Branching Rules
 Please follow this branch naming structure:
--- For development:
-dev/yourname/group#
-Example: dev/angel/group2
---For QA testing:
-qa/yourname/group#
-Example: qa/jaypee/group1
+1. For development:
+  dev/yourname/group#
+  Example: dev/angel/group2
+2. For QA testing:
+  qa/yourname/group#
+  Example: qa/jaypee/group1
 
 # Commit Message Format
 To keep the commit history clean and understandable, follow this format:
--- Format:
+1. Format:
 [type]: short description | component name | group#
--- Types:
-1. feat: for features or components
-2. fix: for bug fixes
-3. style: for UI tweaks (colors, padding, alignment)
-4. refactor: for code cleanup
--- Examples:
-1. feat: added dropdown for form | FormDropdown | group3
-2. fix: button not clickable on mobile | NavBar | group1
+2. Types:
+    feat: for features or components
+    fix: for bug fixes
+    style: for UI tweaks (colors, padding, alignment)
+    refactor: for code cleanup
+3. Examples:
+    feat: added dropdown for form | FormDropdown | group3
+    fix: button not clickable on mobile | NavBar | group1
 
 # Questions or Clarifications?
 Please use your team’s communication channel or directly message the project lead/UI/UX coordinator for questions about:
--- Access to the documentation sheet
--- Component ownership or reuse
--- Design decisions and UI direction
+1. Access to the documentation sheet
+2. Component ownership or reuse
+3. Design decisions and UI direction
