@@ -10,24 +10,24 @@ are maintained in our shared documentation sheet. Please check the following doc
 # Branching Rules
 Please follow this branch naming structure:
 1. For development:
-  dev/yourname/group#
-  Example: dev/angel/group2
+1.1 dev/yourname/group#
+1.2 Example: dev/angel/group2
 2. For QA testing:
-  qa/yourname/group#
-  Example: qa/jaypee/group1
+2.1 qa/yourname/group#
+2.2 Example: qa/jaypee/group1
 
 # Commit Message Format
 To keep the commit history clean and understandable, follow this format:
 1. Format:
 [type]: short description | component name | group#
 2. Types:
-    feat: for features or components
-    fix: for bug fixes
-    style: for UI tweaks (colors, padding, alignment)
-    refactor: for code cleanup
+2.1 feat: for features or components
+2.2 fix: for bug fixes
+2.3 style: for UI tweaks (colors, padding, alignment)
+3.4 refactor: for code cleanup
 3. Examples:
-    feat: added dropdown for form | FormDropdown | group3
-    fix: button not clickable on mobile | NavBar | group1
+3.1 feat: added dropdown for form | FormDropdown | group3
+3.2 fix: button not clickable on mobile | NavBar | group1
 
 # Questions or Clarifications?
 Please use your team’s communication channel or directly message the project lead/UI/UX coordinator for questions about:
