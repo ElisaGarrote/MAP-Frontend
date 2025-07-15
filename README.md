@@ -6,28 +6,28 @@ This repo ensures we follow a consistent design system, reusable component struc
 # Where to Navigate?
 All detailed documents such as Book Design, Timeline, Assigned Component Responsibility, Defects Tracking, etc. 
 are maintained in our shared documentation sheet. Please check the following documents below:
-
+1. Map Design Book: https://docs.google.com/spreadsheets/d/1mNWw2Eqd17Y8yBxs8sEmSDX1fXmezOqp5z4AI8q5m5c/edit?usp=sharing
+2. UI Management: (Contains timeline, rules, links, version control. Please follow what instruct to put here) https://docs.google.com/spreadsheets/d/1bunMlU3PPrXw1LvwWHWdyXb6CQPHZAIGwGMkGJrvSLw/edit?usp=sharing
 # Branching Rules
 Please follow this branch naming structure:
 1. For development:
-1.1 dev/yourname/group#
-1.2 Example: dev/angel/group2
+a. dev/yourname/group#
+b. Example: dev/angel/group2
 2. For QA testing:
-2.1 qa/yourname/group#
-2.2 Example: qa/jaypee/group1
+a. qa/yourname/group#
+b. Example: qa/jaypee/group1
 
 # Commit Message Format
 To keep the commit history clean and understandable, follow this format:
-1. Format:
-[type]: short description | component name | group#
+1. Format: [type]: short description | component name | group#
 2. Types:
-2.1 feat: for features or components
-2.2 fix: for bug fixes
-2.3 style: for UI tweaks (colors, padding, alignment)
-3.4 refactor: for code cleanup
+a. feat: for features or components
+b. fix: for bug fixes
+c. style: for UI tweaks (colors, padding, alignment)
+d. refactor: for code cleanup
 3. Examples:
-3.1 feat: added dropdown for form | FormDropdown | group3
-3.2 fix: button not clickable on mobile | NavBar | group1
+a. feat: added dropdown for form | FormDropdown | group3
+b. fix: button not clickable on mobile | NavBar | group1
 
 # Questions or Clarifications?
 Please use your team’s communication channel or directly message the project lead/UI/UX coordinator for questions about:
