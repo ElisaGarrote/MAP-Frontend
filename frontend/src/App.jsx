@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import MainPage from './pages/MainPage.jsx';
 

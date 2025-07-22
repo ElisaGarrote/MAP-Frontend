@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../components/NavBar.jsx';
+import NavBar from '../components/PageNavBar.jsx';
 import '../styles/MainPage.css';
 
 const MainPage = () => {
