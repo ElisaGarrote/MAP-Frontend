@@ -1,1 +1,59 @@
-/* InputField Component Styles */
+.input-group {
+  margin-bottom: 16px;
+}
+
+.input-label {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.input-label .required {
+  color: red;
+  margin-left: 2px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1px solid #d3d3d3;
+  border-radius: 25px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.input-field:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-field:hover:not(:disabled) {
+  border-color: #9CA3AF;
+}
+
+.input-field::placeholder {
+  color: #9CA3AF;
+}
+
+.input-disabled {
+  background-color: #F3F4F6;
+  color: #9CA3AF;
+  cursor: not-allowed;
+}
+
+.input-disabled:hover {
+  border-color: #d3d3d3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .input-field {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}

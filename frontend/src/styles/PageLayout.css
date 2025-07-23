@@ -1,0 +1,75 @@
+/* Global scrollbar hiding for all elements */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera on html and body */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --margin-size-main: 2.5vw;
+  --margin-size-min: 4.5vw;
+}
+
+.page-layout {
+  background-color: #F8F8F8;
+  color: #0C0C0C;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 100px var(--margin-size-main) 38px var(--margin-size-main);
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.page-container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  min-height: calc(100vh - 176px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .page-layout {
+    padding: 80px var(--margin-size-min) 20px var(--margin-size-min);
+  }
+  
+  .page-container {
+    padding: 20px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-layout {
+    padding: 70px 15px 15px 15px;
+  }
+  
+  .page-container {
+    padding: 15px;
+    border-radius: 10px;
+  }
+}

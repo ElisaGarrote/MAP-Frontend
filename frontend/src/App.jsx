@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import PageLayout from './components/PageLayout';
+
+// Import demo pages
+import ButtonDemo from './pages/lacusong/ButtonDemo';
+import InputDemo from './pages/lacusong/InputDemo';
+import NavbarDemo from './pages/lacusong/NavbarDemo';
+import PageLayoutDemo from './pages/lacusong/PageLayoutDemo';
+import PrimaryButtonDemo from './pages/lacusong/PrimaryButtonDemo';
+
+import './App.css';
+
+const HomePage = () => (
+  <PageLayout>
+    <h1>Component Demo Home</h1>
+    <p>Welcome to the component demonstration pages!</p>
+    <p>Use the navigation above to explore different components:</p>
+    <ul>
+      <li><strong>Button:</strong> Various button styles and states</li>
+      <li><strong>Input:</strong> Form input fields with different states</li>
+      <li><strong>Navbar:</strong> Navigation bar with responsive behavior</li>
+      <li><strong>Layout:</strong> Page layout container demonstration</li>
+      <li><strong>Primary Button:</strong> Focused primary button examples</li>
+    </ul>
+  </PageLayout>
+);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/lacusong/button" element={<ButtonDemo />} />
+          <Route path="/lacusong/input" element={<InputDemo />} />
+          <Route path="/lacusong/navbar" element={<NavbarDemo />} />
+          <Route path="/lacusong/layout" element={<PageLayoutDemo />} />
+          <Route path="/lacusong/primary-button" element={<PrimaryButtonDemo />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
