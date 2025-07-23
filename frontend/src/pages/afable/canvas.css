@@ -1,0 +1,11 @@
+
+.canvasContainer {
+  margin: 20px 4.5vw;
+}
+
+/* Charts */
+.chart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
