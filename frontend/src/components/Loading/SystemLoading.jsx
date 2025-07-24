@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/SystemLoading.css';
-import SystemLogo from "../../assets/icons/system-logo-transparent.svg";
+import '../../styles/SystemLoading.css';
+import SystemLogo from "../../assets/system-logo-transparent.svg";
 
 export default function SystemLoading() {
   return (
