@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import MAPLOGO from '../assets/MAPLOGO.jpg';
+import MAPLOGO from '../assets/MAPLOGO.png';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [notificationCount, setNotificationCount] = useState(3);
+  const [isScrolled, setIsScrolled] = useState(false);
   
   const notificationRef = useRef(null);
   const profileRef = useRef(null);
@@ -76,6 +77,17 @@ const Navbar = () => {
     }
   ]);
 
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Handle clicks outside dropdowns
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -123,14 +135,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
-        {/* Logo Section - Updated to be non-clickable */}
+        {/* Mobile Hamburger - moved to left */}
+        <button 
+          className="hamburger mobile-only"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Logo Section */}
         <div className="navbar-logo">
           <img src={MAPLOGO} alt="Company Logo" className="logo-img" />
+          <span className="logo-text">Budget Pro</span>
         </div>
 
-        {/* Desktop Navigation - Updated with multiple dropdowns without icons */}
+        {/* Desktop Navigation */}
         <div className="navbar-nav desktop-nav">
           {Object.keys(dropdownOptions).map((name) => (
             <div 
@@ -143,6 +166,15 @@ const Navbar = () => {
                 onClick={() => handleDropdownToggle(name)}
               >
                 {name}
+                <svg 
+                  className={`dropdown-arrow ${activeDropdown === name ? 'rotated' : ''}`} 
+                  width="12" 
+                  height="12" 
+                  viewBox="0 0 12 12" 
+                  fill="currentColor"
+                >
+                  <path d="M6 8.5L2.5 5H9.5L6 8.5Z"/>
+                </svg>
               </button>
               {activeDropdown === name && (
                 <div className="dropdown-menu">
@@ -238,17 +270,17 @@ const Navbar = () => {
                 </div>
                 <div className="profile-menu">
                   <Link to="/profile" className="profile-menu-item">
-                    <span className="menu-icon"> </span>
+                    <span className="menu-icon"></span>
                     Manage Profile
                   </Link>
                   {userData.isAdmin && (
                     <Link to="/admin/users" className="profile-menu-item">
-                      <span className="menu-icon"> </span>
+                      <span className="menu-icon"></span>
                       User Management
                     </Link>
                   )}
                   <button className="profile-menu-item logout-btn" onClick={handleLogout}>
-                    <span className="menu-icon"> </span>
+                    <span className="menu-icon"></span>
                     Log Out
                   </button>
                 </div>
@@ -256,21 +288,12 @@ const Navbar = () => {
             )}
           </div>
         </div>
-
-        {/* Mobile Hamburger */}
-        <button 
-          className="hamburger mobile-only"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
 
-      {/* Mobile Menu - Updated with all dropdowns */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="mobile-menu">
+          {/* User Profile Section at top */}
           <div className="mobile-user-section">
             <div className="mobile-profile">
               <div className="profile-image mobile-profile-img">
@@ -298,6 +321,7 @@ const Navbar = () => {
             </div>
           </div>
           
+          {/* Navigation Links */}
           <div className="mobile-nav">
             {Object.keys(dropdownOptions).map((name) => (
               <div key={name} className="mobile-dropdown">
@@ -321,7 +345,7 @@ const Navbar = () => {
                 className="mobile-menu-item"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Manage Profile
+                 Manage Profile
               </Link>
               {userData.isAdmin && (
                 <Link 
@@ -329,7 +353,7 @@ const Navbar = () => {
                   className="mobile-menu-item"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  User Management
+                   User Management
                 </Link>
               )}
               <button 
@@ -339,7 +363,7 @@ const Navbar = () => {
                   setIsMobileMenuOpen(false);
                 }}
               >
-                Log Out
+                 Log Out
               </button>
             </div>
           </div>

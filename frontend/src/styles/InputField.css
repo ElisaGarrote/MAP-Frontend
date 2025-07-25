@@ -51,6 +51,27 @@
   border-color: #d3d3d3;
 }
 
+/* Error states */
+.input-field.input-error {
+  border-color: #DC2626;
+}
+
+.input-field.input-error:focus {
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.input-field.input-error:hover:not(:disabled) {
+  border-color: #DC2626;
+}
+
+.input-error-message {
+  color: #DC2626;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .input-field {

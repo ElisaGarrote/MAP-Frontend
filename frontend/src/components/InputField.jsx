@@ -6,6 +6,7 @@ const InputField = ({
   placeholder = '',
   value,
   onChange,
+  onBlur,
   disabled = false,
   className = '',
   label = '',
@@ -13,6 +14,8 @@ const InputField = ({
   error = '',
   ...props 
 }) => {
+  const hasError = error && error.trim() !== '';
+  
   return (
     <div className={`input-group ${className}`}>
       {label && (
@@ -26,19 +29,16 @@ const InputField = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        onBlur={onBlur}
         disabled={disabled}
         required={required}
-        className={`input-field ${disabled ? 'input-disabled' : ''}`}
+        className={`input-field ${disabled ? 'input-disabled' : ''} ${hasError ? 'input-error' : ''}`}
         {...props}
       />
-      {error && (
-        <div style={{ 
-          color: '#DC2626', 
-          fontSize: '12px', 
-          marginTop: '4px' 
-        }}>
+      {hasError && (
+        <span className="input-error-message">
           {error}
-        </div>
+        </span>
       )}
     </div>
   );

@@ -12,15 +12,143 @@ const InputDemo = () => {
     company: ''
   });
 
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    message: '',
+    phone: '',
+    company: ''
+  });
+
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    message: false,
+    phone: false,
+    company: false
+  });
+
+  const validateField = (field, value) => {
+    let error = '';
+    
+    switch (field) {
+      case 'name':
+        if (!value.trim()) {
+          error = 'Full name is required';
+        } else if (value.trim().length < 2) {
+          error = 'Name must be at least 2 characters long';
+        }
+        break;
+      
+      case 'email':
+        if (!value.trim()) {
+          error = 'Email address is required';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          error = 'Please enter a valid email address';
+        }
+        break;
+      
+      case 'message':
+        if (!value.trim()) {
+          error = 'Message is required';
+        } else if (value.trim().length < 10) {
+          error = 'Message must be at least 10 characters long';
+        }
+        break;
+      
+      case 'phone':
+        // Phone is optional, but if provided, should be valid
+        if (value.trim() && !/^[\+]?[1-9][\d]{0,15}$/.test(value.replace(/[\s\-\(\)]/g, ''))) {
+          error = 'Please enter a valid phone number';
+        }
+        break;
+      
+      default:
+        break;
+    }
+    
+    return error;
+  };
+
   const handleInputChange = (field) => (e) => {
+    const value = e.target.value;
+    
     setFormData({
       ...formData,
-      [field]: e.target.value
+      [field]: value
+    });
+
+    // Validate field if it has been touched
+    if (touched[field]) {
+      const error = validateField(field, value);
+      setErrors({
+        ...errors,
+        [field]: error
+      });
+    }
+  };
+
+  const handleBlur = (field) => () => {
+    setTouched({
+      ...touched,
+      [field]: true
+    });
+
+    const error = validateField(field, formData[field]);
+    setErrors({
+      ...errors,
+      [field]: error
     });
   };
 
+  const validateAllFields = () => {
+    const newErrors = {};
+    const newTouched = {};
+    
+    Object.keys(formData).forEach(field => {
+      newTouched[field] = true;
+      newErrors[field] = validateField(field, formData[field]);
+    });
+    
+    setTouched(newTouched);
+    setErrors(newErrors);
+    
+    // Return true if no errors
+    return !Object.values(newErrors).some(error => error !== '');
+  };
+
   const handleSubmit = () => {
-    alert(`Form Data:\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`);
+    if (validateAllFields()) {
+      alert(`Form Data:\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`);
+      // Here you could also reset the form if needed
+      // resetForm();
+    } else {
+      alert('Please fix the errors in the form before submitting.');
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
+      phone: '',
+      company: ''
+    });
+    setErrors({
+      name: '',
+      email: '',
+      message: '',
+      phone: '',
+      company: ''
+    });
+    setTouched({
+      name: false,
+      email: false,
+      message: false,
+      phone: false,
+      company: false
+    });
   };
 
   return (
@@ -87,7 +215,9 @@ const InputDemo = () => {
               placeholder="Enter your full name"
               value={formData.name}
               onChange={handleInputChange('name')}
+              onBlur={handleBlur('name')}
               required
+              error={errors.name}
               style={{ marginBottom: '16px' }}
             />
             
@@ -97,7 +227,9 @@ const InputDemo = () => {
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleInputChange('email')}
+              onBlur={handleBlur('email')}
               required
+              error={errors.email}
               style={{ marginBottom: '16px' }}
             />
             
@@ -107,6 +239,8 @@ const InputDemo = () => {
               placeholder="Enter your phone number"
               value={formData.phone}
               onChange={handleInputChange('phone')}
+              onBlur={handleBlur('phone')}
+              error={errors.phone}
               style={{ marginBottom: '16px' }}
             />
           </fieldset>
@@ -127,6 +261,8 @@ const InputDemo = () => {
               placeholder="Enter your company name"
               value={formData.company}
               onChange={handleInputChange('company')}
+              onBlur={handleBlur('company')}
+              error={errors.company}
               style={{ marginBottom: '16px' }}
             />
           </fieldset>
@@ -156,11 +292,15 @@ const InputDemo = () => {
                 placeholder="Enter your message"
                 value={formData.message}
                 onChange={handleInputChange('message')}
+                onBlur={(e) => {
+                  e.target.style.borderColor = errors.message ? '#DC2626' : '#d3d3d3';
+                  handleBlur('message')();
+                }}
                 style={{
                   width: '100%',
                   minHeight: '120px',
                   padding: '13px 16px',
-                  border: '1px solid #d3d3d3',
+                  border: `1px solid ${errors.message ? '#DC2626' : '#d3d3d3'}`,
                   borderRadius: '25px',
                   fontSize: '14px',
                   fontFamily: 'inherit',
@@ -169,10 +309,18 @@ const InputDemo = () => {
                   transition: 'border-color 0.2s ease',
                   boxSizing: 'border-box'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#2563EB'}
-                onBlur={(e) => e.target.style.borderColor = '#d3d3d3'}
+                onFocus={(e) => e.target.style.borderColor = errors.message ? '#DC2626' : '#2563EB'}
                 required
               />
+              {errors.message && (
+                <div style={{ 
+                  color: '#DC2626', 
+                  fontSize: '12px', 
+                  marginTop: '4px' 
+                }}>
+                  {errors.message}
+                </div>
+              )}
             </div>
           </fieldset>
 
@@ -204,6 +352,7 @@ const InputDemo = () => {
           }}>
             <Button 
               variant="secondary"
+              onClick={resetForm}
               style={{
                 padding: '10px 24px',
                 backgroundColor: '#f3f4f6',
