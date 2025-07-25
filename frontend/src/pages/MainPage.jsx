@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import NavBar from '../components/PageNavBar.jsx';
 import '../styles/MainPage.css';
 import SystemLoading from "../components/Loading/SystemLoading.jsx";
@@ -22,11 +23,12 @@ const MainPage = () => {
 
   return (
     <div>
-      <NavBar /> {/* Add NavBar at the top */}
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <h1>Welcome to MainPage</h1>
-        <p>This is a simple test to check if MainPage is displayed correctly.</p>
-      </div>
+      <header className="mainpage-navbar">
+        <NavBar />
+      </header>
+      <main className="mainpage-content">
+        <Outlet />
+      </main>
     </div>
   );
 };

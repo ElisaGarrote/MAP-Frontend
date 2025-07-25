@@ -1,0 +1,86 @@
+/* TabsDemo.css */
+
+/* Full-width container for the tab component */
+.tabs-container {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-white-background);
+  font-family: var(--font-base);
+}
+
+/* Tab Navigation */
+.tabs-nav {
+  border-bottom: 1px solid var(--color-gray-300);
+  background-color: var(--color-light-background);
+}
+
+/* Tab list layout */
+.tabs-list {
+  display: flex;
+  gap: 2rem; /* matches design spec */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Tab item */
+.tabs-list-item {
+  flex: 1;
+  text-align: center;
+}
+
+/* Tab button */
+.tab-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  color: var(--color-text-dark);
+  transition: all 0.15s ease;
+  text-align: center;
+  outline: none;
+}
+
+/* Hover state */
+.tab-btn:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Active state */
+.tab-btn.active {
+  border-bottom: 2px solid var(--color-primary-blue);
+  font-weight: 500;
+  color: var(--color-primary-blue);
+}
+
+/* Tab panel content */
+.tab-panel {
+  width: 100%;
+  padding: 24px 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+  background-color: var(--color-white-background);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .tabs-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tabs-list-item {
+    flex: unset;
+  }
+
+  .tab-btn {
+    text-align: left;
+  }
+}

@@ -1,6 +1,5 @@
 /* App.css */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -62,3 +61,16 @@
 }
 
 /* MainPage styles will be imported from its own CSS file */
+
+.mainpage-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.mainpage-content {
+  margin-top: 64px; /* Adjust based on navbar height */
+  padding: 24px;
+}

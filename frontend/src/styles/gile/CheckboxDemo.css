@@ -1,0 +1,70 @@
+/* CheckboxDemo.css */
+
+/* Checkbox wrapper layout */
+.column-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  font-family: var(--font-base);
+  font-size: 1rem;
+  color: var(--color-text-dark);
+  min-height: 44px;
+}
+
+/* Basic custom checkbox appearance */
+.column-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-gray-300);
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.column-checkbox input[type="checkbox"]:hover:not(:disabled) {
+  border-color: var(--color-primary-hover);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* Checked state */
+.column-checkbox input[type="checkbox"]:checked {
+  background-color: var(--color-primary-blue);
+  border-color: var(--color-primary-blue);
+}
+
+.column-checkbox input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Disabled state */
+.column-checkbox input[type="checkbox"]:disabled {
+  background-color: var(--color-gray-200);
+  border-color: var(--color-gray-300);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.column-checkbox input[type="checkbox"]:disabled + .checkbox-label {
+  color: var(--color-neutral-gray);
+}
+
+/* Label styling */
+.checkbox-label {
+  flex: 1;
+  line-height: 1.5;
+  user-select: none;
+}

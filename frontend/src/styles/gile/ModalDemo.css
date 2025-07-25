@@ -1,0 +1,136 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+}
+
+.modal-card {
+  background-color: var(--color-white-background);
+  border: 1px solid var(--color-gray-300);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.2s ease-in-out;
+  transform: translateY(0); /* Ensure proper center rendering */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+
+.modal-message {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-dark);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Action Buttons */
+.cancel-btn {
+  background-color: var(--color-gray-300);
+  color: var(--color-text-dark);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.cancel-btn:hover {
+  background-color: #cfcfcf;
+}
+
+.confirm-action-btn {
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Contextual Color Classes */
+.confirm-action-btn.delete-btn {
+  background-color: var(--color-error);
+}
+
+.confirm-action-btn.delete-btn:hover {
+  background-color: var(--color-error-hover);
+}
+
+.confirm-action-btn.activate-btn {
+  background-color: var(--color-success);
+}
+
+.confirm-action-btn.activate-btn:hover {
+  background-color: var(--color-success-hover);
+}
+
+.confirm-action-btn.confirm-btn {
+  background-color: var(--color-primary-blue);
+}
+
+.confirm-action-btn.confirm-btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Responsive Layout */
+@media (max-width: 480px) {
+  .modal-card {
+    padding: 1rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .modal-message {
+    font-size: 13px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+}

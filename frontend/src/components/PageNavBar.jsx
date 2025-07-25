@@ -25,10 +25,10 @@ const PageNavBar = () => {
       { name: "Component 4", link: "/afable/component4" },
     ],
     Gile: [
-      { name: "Component 1", link: "/gile/component1" },
-      { name: "Component 2", link: "/gile/component2" },
-      { name: "Component 3", link: "/gile/component3" },
-      { name: "Component 4", link: "/gile/component4" },
+      { name: "Checkbox", link: "/gile/checkbox" },
+      { name: "Dropdown", link: "/gile/dropdown" },
+      { name: "Modal", link: "/gile/modal" },
+      { name: "Tabs", link: "/gile/tabs" },
     ],
   };
 

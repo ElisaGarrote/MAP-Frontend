@@ -1,74 +1,191 @@
+/* =========================================
+   Global Design System - index.css
+   ========================================= */
+
+/* ================================
+   IMPORTED FONTS
+   ================================ */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ================================
+   ROOT STYLES
+   ================================ */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-base: 'Poppins', sans-serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* === Primary Colors === */
+  --color-primary-blue: #007BFF;
+  --color-primary-blue-dark: #006FE6;
+  --color-primary-hover: #0056B3;
+  --color-primary-hover-alt: #338CEB;
 
-  /* Custom properties for the application */
-  --primary-color: #646cff;
-  --secondary-color: #535bf2;
+  /* === Backgrounds === */
+  --color-light-background: #F8F8F8;
+  --color-white-background: #FFFFFF;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* === Text Colors === */
+  --color-text-light: #FCFCFC;
+  --color-text-dark: #0C0C0C;
+
+  /* === Status Colors === */
+  --color-success: #039855;
+  --color-success-hover: #35ad77;
+  --color-error: #D92D20;
+  --color-error-hover: #e1574d;
+  --color-warning: #FDB022;
+  --color-warning-hover: #fdc04e;
+  --color-info: #175CD3;
+
+  /* === Neutral Colors === */
+  --color-neutral-gray: #414651;
+  --color-gray-300: #E0E0E0;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* ================================
+   TYPOGRAPHY STYLES
+   ================================ */
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: var(--font-base);
+  color: var(--color-text-dark);
+  background-color: var(--color-white-background);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Headings */
+.h1 {
+  font-size: clamp(32px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: none;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.h2 {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+.h3 {
+  font-size: clamp(24px, 3.5vw, 32px);
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  line-height: 1.4;
+  text-transform: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-    --primary-color: #646cff;
-    --secondary-color: #747bff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.h4 {
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 300;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+/* Body Text */
+.body-text {
+  font-size: clamp(16px, 2.5vw, 18px);
+  font-weight: 400;
+  line-height: 1.7;
+  text-transform: none;
+}
+
+/* Tiny / Label Text */
+.tiny-text {
+  font-size: clamp(12px, 2vw, 14px);
+  font-weight: 300;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Button Text */
+.button-text {
+  font-size: clamp(14px, 2.5vw, 16px);
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+/* Toast / Notification Text */
+.toast-text {
+  font-size: clamp(14px, 2.5vw, 16px);
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+/* ================================
+   UTILITY CLASSES
+   ================================ */
+.text-light {
+  color: var(--color-text-light);
+}
+
+.text-dark {
+  color: var(--color-text-dark);
+}
+
+.bg-light {
+  background-color: var(--color-light-background);
+}
+
+.bg-white {
+  background-color: var(--color-white-background);
+}
+
+.bg-primary {
+  background-color: var(--color-primary-blue);
+  color: var(--color-text-light);
+}
+
+/* ================================
+   BUTTON STYLES
+   ================================ */
+.button-primary {
+  background-color: var(--color-primary-blue);
+  color: var(--color-text-light);
+  font-family: var(--font-base);
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.button-disabled {
+  background-color: var(--color-neutral-gray);
+  color: var(--color-text-light);
+  cursor: not-allowed;
+}
+
+/* ================================
+   ALERTS / STATUS MESSAGES
+   ================================ */
+.alert-success {
+  background-color: var(--color-success);
+  color: var(--color-text-light);
+}
+
+.alert-success:hover {
+  background-color: var(--color-success-hover);
+}
+
+.alert-error {
+  background-color: var(--color-error);
+  color: var(--color-text-light);
+}
+
+.alert-error:hover {
+  background-color: var(--color-error-hover);
+}
+
+.alert-warning {
+  background-color: var(--color-warning);
+  color: var(--color-text-dark);
+}
+
+.alert-warning:hover {
+  background-color: var(--color-warning-hover);
+}
+
+.alert-info {
+  background-color: var(--color-info);
+  color: #FFFFFF;
 }
