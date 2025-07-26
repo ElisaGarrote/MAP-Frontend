@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/PageNavBar.css";
 
 const PageNavBar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const dropdownRef = useRef(null);
+  const navbarRef = useRef(null);
 
   const dropdownOptions = {
     Sillano: [
@@ -32,9 +33,10 @@ const PageNavBar = () => {
     ],
   };
 
+  // Handle clicking outside to close dropdowns
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
         setActiveDropdown(null);
       }
     };
@@ -45,33 +47,55 @@ const PageNavBar = () => {
     };
   }, []);
 
+  // Handle dropdown toggle
+  const toggleDropdown = (name) => {
+    setActiveDropdown(activeDropdown === name ? null : name);
+  };
+
+  // Handle navigation and close dropdown
+  const handleNavigation = () => {
+    setActiveDropdown(null);
+  };
+
+  // Handle keyboard navigation
+  const handleKeyDown = (event, name) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleDropdown(name);
+    }
+    if (event.key === "Escape") {
+      setActiveDropdown(null);
+    }
+  };
+
   return (
-    <nav className="navbar">
+    <nav className="navbar" ref={navbarRef}>
       <div className="navbar-left">
         {Object.keys(dropdownOptions).map((name) => (
-          <div
-            key={name}
-            className="nav-dropdown"
-            ref={dropdownRef}
-          >
+          <div key={name} className="nav-dropdown">
             <span
               className="nav-link"
-              onClick={() =>
-                setActiveDropdown(activeDropdown === name ? null : name)
-              }
+              onClick={() => toggleDropdown(name)}
+              onKeyDown={(e) => handleKeyDown(e, name)}
+              tabIndex={0}
+              role="button"
+              aria-expanded={activeDropdown === name}
+              aria-haspopup="true"
             >
               {name}
             </span>
             {activeDropdown === name && (
-              <div className="dropdown-menu">
+              <div className="dropdown-menu" role="menu">
                 {dropdownOptions[name].map((option, index) => (
-                  <a
+                  <Link
                     key={index}
-                    href={option.link}
+                    to={option.link}
                     className="dropdown-item"
+                    onClick={handleNavigation}
+                    role="menuitem"
                   >
                     {option.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
