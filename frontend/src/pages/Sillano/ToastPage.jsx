@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../../components/PageNavBar.jsx';
-import Alert from '../../components/Alert.jsx';
+import Alert from '../../components/Toast.jsx';
 
 const ToastPage = () => {
   const [successMessage, setSuccessMessage] = useState('');

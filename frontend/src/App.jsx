@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import MainPage from './pages/MainPage.jsx';
 import ToastPage from './pages/Sillano/ToastPage.jsx';
 import LoadingPage from './pages/Sillano/LoadingPage.jsx';
+import SkeletonPage from './pages/Sillano/SkeletonPage.jsx';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/sillano/component1" element={<ToastPage />} />
         <Route path="/sillano/component2" element={<LoadingPage />} />
+        <Route path="/sillano/component3" element={<SkeletonPage />} />
       </Routes>
     </Router>
   );

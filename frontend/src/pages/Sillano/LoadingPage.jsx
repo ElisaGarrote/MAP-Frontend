@@ -22,7 +22,7 @@ const LoadingPage = () => {
   return (
     <div>
       <NavBar /> {/* Add NavBar at the top */}
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <div style={{ textAlign: 'center', marginTop: '80px' }}>
         <h1>Welcome to Loading Page</h1>
         <p>This is a simple test to check if Loading Page is displayed correctly.</p>
       </div>
