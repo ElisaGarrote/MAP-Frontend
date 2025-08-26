@@ -1,0 +1,50 @@
+/* Toast Page (component 1) specific styles */
+
+.toast-page-container {
+  margin-top: 80px;        /* sit below fixed navbar */
+  padding: 0 16px;         /* small horizontal breathing room */
+  text-align: left;        /* align everything to the left */
+  background: none !important; /* force remove any background */
+  max-width: 960px;        /* readable width */
+}
+
+.toast-page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.toast-page-description {
+  color: #545f71;
+  margin: 0 0 14px 0;
+}
+
+.toast-buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.toast-button {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff; /* keep the buttons clean */
+  cursor: pointer;
+  font-weight: 600;
+}
+.toast-button:hover { background: #f5f5f5; }
+
+.toast-button-success {
+  color: #0f5132;
+  border-color: #badbcc;
+  background-color: #d1e7dd;
+}
+.toast-button-success:hover { background-color: #cfe3d9; }
+
+.toast-button-error {
+  color: #842029;
+  border-color: #f5c2c7;
+  background-color: #f8d7da;
+}
+.toast-button-error:hover { background-color: #f3cbd0; }
+

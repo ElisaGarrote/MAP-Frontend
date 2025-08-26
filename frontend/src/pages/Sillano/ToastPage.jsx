@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../../components/PageNavBar.jsx';
 import Alert from '../../components/Toast.jsx';
+import '../../styles/ToastPage.css';
 
 const ToastPage = () => {
   const [successMessage, setSuccessMessage] = useState('');
