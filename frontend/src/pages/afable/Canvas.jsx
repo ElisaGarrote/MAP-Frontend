@@ -9,10 +9,11 @@ import TableDemo from "./TableDemo";
 import FilterDemo from "./FilterDemo";
 
 // charts
-import BarChart from "./Bar";
-import LineChart from "./Line";
-import PieChart from "./Pie";
-import DoughnutChart from "./Doughnut";
+import BarChart from "./charts/BarChart";
+import LineChart from "./charts/LineChart";
+import PieChart from "./charts/PieChart";
+import DoughnutChart from "./charts/DoughnutChart";
+import ChartContainer from "./charts/ChartContainer";
 
 export default function Canvas() {
   return (
@@ -29,10 +30,18 @@ export default function Canvas() {
       {/* charts here */}
       <div className="charts">
         <div className="chart">
-          <BarChart />
-          <LineChart />
-          <PieChart />
-          <DoughnutChart />
+          <ChartContainer title="Bar Chart">
+            <BarChart />
+          </ChartContainer>
+          <ChartContainer title="Line Chart">
+            <LineChart />
+          </ChartContainer>
+          <ChartContainer title="Pie Chart">
+            <PieChart />
+          </ChartContainer>
+          <ChartContainer title="Doughnut Chart">
+            <DoughnutChart />
+          </ChartContainer>
         </div>
         {/* Add more charts as needed */}
       </div>

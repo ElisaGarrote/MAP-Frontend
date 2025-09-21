@@ -16,3 +16,34 @@ body {
   background-color: #fcfcfc;
 }
 
+:root {
+   --font-base: 'Poppins', sans-serif;
+
+  /* === Primary Colors === */
+  --color-primary-blue: #007BFF;
+  --color-primary-blue-dark: #006FE6;
+  --color-primary-hover: #0056B3;
+  --color-primary-hover-alt: #338CEB;
+
+  /* === Backgrounds === */
+  --color-light-background: #F8F8F8;
+  --color-white-background: #FFFFFF;
+
+  /* === Text Colors === */
+  --color-text-light: #FCFCFC;
+  --color-text-dark: #0C0C0C;
+
+  /* === Status Colors === */
+  --color-success: #039855;
+  --color-success-hover: #35ad77;
+  --color-error: #D92D20;
+  --color-error-hover: #e1574d;
+  --color-warning: #FDB022;
+  --color-warning-hover: #fdc04e;
+  --color-info: #175CD3;
+
+  /* === Neutral Colors === */
+  --color-neutral-gray: #414651;
+  --color-gray-300: #E0E0E0;
+}
+

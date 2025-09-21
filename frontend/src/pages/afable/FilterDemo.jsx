@@ -1,4 +1,5 @@
 // styles
+import DropdownDemo from "./components/DropdownDemo";
 import "./filterDemo.css";
 
 // react
@@ -18,41 +19,46 @@ export default function FilterDemo() {
           {/* Category Dropdown */}
           <div className="filterGroup">
             <label htmlFor="category">Category</label>
-            <select name="category" className="dropdown">
+            {/* <select name="category" className="dropdown">
               <option value="">Select category</option>
               <option value="books">Books</option>
               <option value="electronics">Electronics</option>
               <option value="clothing">Clothing</option>
-            </select>
+            </select> */}
+            <DropdownDemo />
           </div>
 
           {/* Status Dropdown */}
           <div className="filterGroup">
             <label htmlFor="status">Status</label>
-            <select name="status" className="dropdown">
+            {/* <select name="status" className="dropdown">
               <option value="">Select status</option>
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
               <option value="archived">Archived</option>
-            </select>
+            </select> */}
+            <DropdownDemo />
           </div>
 
           {/* Start Date */}
           <div className="filterGroup">
             <label htmlFor="startDate">Start Date</label>
-            <input type="date" name="startDate" className="dateTime"/>
+            <input type="date" name="startDate" className="dateTime" />
           </div>
 
           {/* End Date */}
           <div className="filterGroup">
             <label htmlFor="endDate">End Date</label>
-            <input type="date" name="endDate" className="dateTime"/>
+            <input type="date" name="endDate" className="dateTime" />
           </div>
 
           {/* Reset Button */}
           <div className="filterActions">
+            <button type="button" className="applyButton">
+              Apply
+            </button>
             <button type="button" className="resetButton">
-              Reset Filters
+              Reset
             </button>
           </div>
         </div>

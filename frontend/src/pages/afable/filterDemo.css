@@ -6,7 +6,8 @@
 
 .fpShowFilter span {
   color: #007bff;
-  font-size: 0.8125rem; /* 13px */
+  font-size: 0.8125rem;
+  /* 13px */
   cursor: pointer;
 }
 
@@ -18,7 +19,7 @@
   flex-wrap: wrap;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e0e0e0;;
+  border: 1px solid #e0e0e0;
   background-color: #ffffff;
   padding: 20px;
 }
@@ -30,9 +31,29 @@
 }
 
 .filterGroup label {
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
+  /* 14px */
   color: #333;
   margin-bottom: 0.25rem;
+}
+
+.filterActions {
+  display: flex;
+  gap: 16px;
+}
+
+.applyButton {
+  border: 1px solid #007bff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #fcfcfc;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.applyButton:hover {
+  background-color: #007bff;
+  color: #fcfcfc;
 }
 
 .resetButton {
@@ -53,7 +74,8 @@
 /* === DATE INPUT STYLES === */
 /* DATETIME */
 .dateTime {
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.75rem;
+  /* 12px */
   border-radius: 4px;
   border: 1px solid #ccc;
   font-variant: 1px solid #cccccc;
@@ -74,7 +96,8 @@
 /* === DROPDOWN INPUT STYLES === */
 /* DROPDOWN STYLE */
 .dropdown {
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.75rem;
+  /* 12px */
   border-radius: 4px;
   border: 1px solid #cccccc;
   padding: 10px 15px;
@@ -101,7 +124,8 @@
   }
 
   .fpShowFilter span {
-    font-size: 0.75rem; /* 12px */
+    font-size: 0.75rem;
+    /* 12px */
   }
 
   /* Filter Container */
@@ -136,7 +160,8 @@
   }
 
   .fpShowFilter span {
-    font-size: 0.6875rem; /* 11px */
+    font-size: 0.6875rem;
+    /* 11px */
   }
 
   /* Filter Container */
@@ -161,4 +186,3 @@
   }
 
 }
-
